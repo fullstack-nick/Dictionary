@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary App</title>
+    <link rel="icon" href="favicon.ico?v=2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <header class="header">
+            <h2 class="title">Dictionary App</h2>
+            <div class="header-nav">
+                <button class="nav-button">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="nav-menu">
+                    <li><a class="section-select" id="open-main" onclick="showMain()">Main</a></li>
+                    <li><a class="section-select" id="open-history" onclick="showHistory()">History</a></li>
+                    <li><a class="section-select" id="open-favorites" onclick="showFavorites()">Favorites</a></li>
+                </ul>
+            </div>
+        </header>
+        <section class="displayArea">
+            <div class="main" id="main">
+                <div class="form-wrap">
+                    <form class="search" id="search" role="searchWord">
+                        <input class="search_text" id="search_text" type="text" role="searchbox" size="40" autocomplete="off" placeholder="Type a word...">
+                        <button class="search_btt" id="search_btt" title="Search the word">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="wordInfo none" id="wordInfo">
+                    <div class="wordWrap" id="wordWrap">
+                        <!-- <h3>Word</h3>
+                        <h6 class="phonetics">Phonetics: [dog]
+                            <audio id="pronounceAudio" src="https://api.dictionaryapi.dev/media/pronunciations/en/table-au.mp3"></audio>
+                            <button class="search_btt" title="Listen to pronunciation" onclick="document.getElementById('pronounceAudio').play()"><i class="fa-solid fa-volume-high"></i></button>
+                        </h6> -->
+
+                        <!-- <h6 class="phonetics" id="phonetics">Phonetics:</h6> -->
+                    </div>
+                    <div class="lines-wrap" id="lines-wrap">
+                        <!-- <div class="definition-line">
+                            <span>definitions</span>
+                        </div>
+                        <div class="pos-line">
+                            <span>verb</span>
+                        </div>
+                        <section class="verbs">
+                            <h6 class="definition">1. Something real simple<br>
+                                <span class="example">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;example: Man, that was easy!</span>
+                            </h6>
+                            <h6 class="definition">2. Something harder<br>
+                                <span class="example">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;example: Man, that wasn't so easy!</span>
+                            </h6>
+                            <h6 class="definition">3. Something real hard<br>
+                                <span class="example">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;example: Man, that was really hard!</span>
+                            </h6>
+                        </section>
+                        <div class="pos-line">
+                            <span>noun</span>
+                        </div>
+                        <section class="nouns"></section> -->
+                    </div>
+                </div>
+            </div>
+            <div class="history-wrap none" id="history-wrap">
+                <hr>
+                <div class="intro" id="history-intro">
+                    <h3 class="page-name">History</h3>
+                    <h6 class="page-description">Here are the words that you last searched for.</h6>
+                </div>
+                <hr>
+                <div class="history" id="history"></div>
+            </div>
+            <div class="favorites-wrap none" id="favorites-wrap">
+                <hr>
+                <div class="intro" id="favorites-intro">
+                    <h3 class="page-name">Favorites</h3>
+                    <h6 class="page-description">Here is the list of your favorite words.</h6>
+                </div>
+                <hr>
+                <div class="favorites" id="favorites"></div>
+            </div>
+        </section>
+        <footer class="footer">
+            <h5>All rights reserved.</h5>
+        </footer>
+    </main>
+</body>
+</html>

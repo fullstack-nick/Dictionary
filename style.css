@@ -1,0 +1,569 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 20px;
+  font-family: "Playfair Display", serif;
+  /* color: $default-font-color; */
+  width: 100%;
+  min-height: 100%;
+  background-color: rgb(224, 224, 224);
+}
+
+body {
+  /* min-height: 100vh; */
+  /* padding: 20px; */
+  /* background-color: $background-color; */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+body.scrolled .footer {
+  bottom: 0;
+}
+
+main {
+  /* max-height: 1050px; */
+  width: 100%;
+  /* height: 100%; */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  color: wheat;
+  position: fixed;
+  top: 0;
+  background-color: darkolivegreen;
+  height: 80px;
+  border: 1px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+.header-nav {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-button {
+  position: relative;
+  top: 40%;
+  /* left: 50%;
+  transform: translateX(-50%); */
+  min-width: 20px;
+  min-height: 23px;
+  padding: 3px;
+  /* font-size: 1.5rem; */
+  cursor: pointer;
+  border: none;
+  background-color:  rgb(224, 224, 224);
+  color: rgb(65, 82, 37);
+  /* font-size: 1.01em; */
+  border-radius: 5px;
+}
+
+.nav-button:focus {
+  outline: none;
+}
+
+i {
+  font-size: 0.7rem;
+}
+
+.nav-menu {
+  position: absolute;
+  top: 80%; /* Position below the button */
+  left: 44%;
+  transform: translateX(-44%);
+  background-color:  rgb(224, 224, 224);
+  list-style: none;
+  display: none; /* Hidden by default */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  gap: 1rem;
+}
+
+.nav-menu li {
+  display: inline; /* Inline to support horizontal layout */
+}
+
+.nav-menu a {
+  /* color: rgb(97, 97, 97); */
+  color: darkolivegreen;
+  text-decoration: none;
+  padding: 0.375rem 0.75rem;
+  /* transition: background 0.1s; */
+}
+
+.nav-menu a:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color:  rgb(215, 215, 215);
+  color: rgb(122, 153, 68);
+  border-radius: 5px;
+}
+
+/* Show menu on hover */
+.header-nav:hover .nav-menu {
+  display: flex; /* Show the menu on hover */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-nav:active .nav-menu {
+  display: flex; /* Show the menu on hover */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-nav:focus .nav-menu {
+  display: flex; /* Show the menu on hover */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.none {
+  display: none;
+  height: 0px;
+  width: 0px;
+}
+
+.displayArea {
+  position: relative;
+  width: 56%;
+  max-width: 800px;
+  /* width: 56%; for pc look - not interchangeable for other screens */
+  /* top: 80px;
+  left: 50%;
+  transform: translateX(-50%); */
+  /* margin-top: 3.5px; */
+  /* min-height: 87vh; */
+  /* min-height: 87%; */
+  background-color: white;
+  margin: 80px auto 0px auto;
+  padding: 20px 20px;
+  padding-top: 40px;
+  flex-grow: 1;
+}
+
+/* .history-wrap {
+  display: flex;
+  flex-direction: column;
+} */
+
+footer {
+  color: wheat;
+  font-size: 14px;
+  /* position: fixed;
+  bottom: 0; */
+  position: relative;
+  background-color: darkolivegreen;
+  /* height: 3%; */
+  min-height: 24px;
+  border: 1px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.search {
+  min-width: 190px;
+  max-width: 400px;
+  /* width: 52%; for pc look - not interchangeable for other screens */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+
+.form-wrap {
+  margin-bottom: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+}
+
+.search_text {
+  border: none;
+  outline: none;
+  min-height: 30px;
+  min-width: 150px;
+  padding: 5px;
+  margin: 2px;
+  margin-left: 4px;
+  /* margin-right: 10px; */
+  font-size: 16px;
+}
+
+.search_btt {
+  border: none;
+  min-width: 30px;
+  min-height: 30px;
+  margin-right: 4px;
+  /* padding: 3px; */
+  /* margin: 2px; */
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.fa-magnifying-glass {
+  color: gray;
+  font-size: 1.5em;
+}
+
+.wordWrap {
+  margin-left: 35px;
+}
+
+.phonetics {
+  margin-top: 5px;
+}
+
+.lines-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* HERE THE INFUSED INFO STARTS */
+
+/* 1) “definitions” line — widest */
+.definition-line {
+  position: relative;
+  width: 100%;          /* Adjust to your liking */
+  height: 2px;         /* The thickness of the line */
+  background: rgb(65, 82, 37);    /* The color of the line */
+  margin: 1rem 0;
+}
+
+.definition-line span {
+  /* Center the text on the line */
+  position: absolute;
+  left: 50%;
+  top: -0.75rem; /* Moves text slightly above the line */
+  transform: translateX(-50%);
+  background: white; /* Matches page background so it “cuts” the line */
+  color: rgb(65, 82, 37);
+  font-size: 16px;
+  letter-spacing: 5px;
+  padding: 0 10px;
+  font-weight: bold;
+}
+
+/* 2) Lines for parts of speech: narrower, with arrow ends */
+.pos-line {
+  position: relative;
+  width: 80%;         /* Narrower than definitions line */
+  height: 2px;
+  background: rgb(65, 82, 37);
+  margin: 1rem 0;
+  cursor: pointer;    /* Indicates something clickable/expandable */
+}
+
+/* .pos-line,
+.lines-wrap,
+.displayArea {    
+  overflow: visible;
+} */
+
+/* The text in the middle of each part-of-speech line */
+.pos-line span {
+  position: absolute;
+  left: 50%;
+  top: -0.75rem;
+  transform: translateX(-50%);
+  background: white;
+  color: rgb(65, 82, 37);
+  font-size: 16px;
+  letter-spacing: 2px;
+  padding: 0 10px;
+}
+
+/* Create arrow-like ends using pseudo-elements */
+.pos-line::before,
+.pos-line::after {
+  content: "V";
+  position: absolute;
+  /* top: 0;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent; */
+  top: 50%;
+  width: 10px;             /* Length of each angled line “arrow tip” */
+  height: 2px;            /* Same thickness as main line */
+  color: rgb(65, 82, 37);
+  /* transform: translateY(-50%); */
+  line-height: 1;
+  transform-origin: center;
+}
+
+/* Left arrow pointing inwards */
+.pos-line::before {
+  /* left: -20px;
+  border-right-color: rgb(65, 82, 37); */
+  left: 0;
+  /* Move it slightly left so it connects nicely at the edge of the main line */
+  transform: translate(94%, -2px) rotate(90deg);
+}
+
+/* Right arrow pointing inwards */
+.pos-line::after {
+  /* right: -20px;
+  border-left-color: rgb(65, 82, 37); */
+  right: 0;
+  /* Move it slightly right so it connects at the edge of the main line */
+  transform: translate(-94%, -2px) rotate(-90deg) scaleX(-1);
+}
+
+/* The “expand indicator” (the little blue thing) can be placed at the bottom center
+   using a pseudo-element on the <span> or on the .pos-line itself. Below, we show
+   it on the <span> so that it appears directly below the text. */
+.pos-line span::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  margin: 6px auto 0;          /* Positions the triangle below the text */
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid rgb(65, 82, 37);  /* A small downward triangle */
+  transition: 0.3s ease;       /* For hover animation */
+}
+
+/* Hover states — change line color, arrow color, and the “expand” triangle */
+.pos-line:hover {
+  background: rgb(107, 133, 58);             /* Example blue color for the line on hover */
+}
+
+.pos-line:hover::before {
+  color: rgb(107, 133, 58);      /* Arrows turn blue */
+}
+
+.pos-line:hover::after {
+  color: rgb(107, 133, 58);
+}
+
+.pos-line:hover span::after {
+  border-top-color: rgb(107, 133, 58);        /* Triangle turns blue */
+  transform: translateY(-2px);      /* Small upward motion to indicate interaction */
+}
+
+.pos-line span:hover {
+  color: rgb(107, 133, 58);        /* Triangle turns blue */
+}
+
+.pos-line:hover span {
+  color: rgb(107, 133, 58); /* Changes the color of the text inside the span */
+}
+
+.space {
+  margin-right: 40px;
+}
+
+.short-space {
+  margin-left: 10px;
+}
+
+.audio_btt {
+  border: none;
+  min-width: 25px;
+  min-height: 25px;
+  /* margin-right: 4px; */
+  /* padding: 3px; */
+  /* margin: 2px; */
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.lines-wrap {
+  margin-top: 10px;
+}
+
+.visible {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-select,
+.title,
+.search_text,
+.definition-line span,
+.pos-line span,
+.nav-menu li,
+.intro,
+.page-name,
+.page-description {
+  user-select: none;
+  /* pointer-events: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  touch-action: none; */
+}
+
+/* .definition-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+} */
+
+.example {
+  color: gray;
+  font-size: 0.8em;
+  display: block;
+  margin-top: 2px;
+  letter-spacing: 0.06em;
+}
+
+.definitions {
+  width: 75%;
+}
+
+.definition {
+  margin-bottom: 10px;
+  letter-spacing: 0.06em;
+}
+
+.word {
+  position: relative;
+}
+
+.like_btt {
+  position: absolute;
+  /* left: 60px; */
+  transform: translateX(6px);
+  bottom: 15px;
+  color: red;
+  border: none;
+  width: 15px;
+  height: 15px;
+  /* padding: 3px; */
+  /* margin: 2px; */
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.1 ease;
+}
+
+.like_btt_small {
+  position: absolute;
+  /* left: 60px; */
+  transform: translateX(3px) scale(0.6);
+  bottom: 17px;
+  color: red;
+  border: none;
+  width: 1px;
+  height: 1px;
+  /* padding: 3px; */
+  /* margin: 2px; */
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform 0.1 ease;
+}
+
+.like_btt:active {
+  width: 17px;
+  height: 17px;
+}
+
+.like_btt_small:active {
+  width: 3px;
+  height: 3px;
+}
+
+.like_icon {
+  height: 100%;
+  width: 100%;
+}
+
+/* .icon_small {
+  pointer-events: none;
+} */
+
+.page-name {
+  letter-spacing: 0.06em;
+  margin-top: 5px;
+}
+
+.page-description {
+  color: gray;
+  font-size: 0.6em;
+  display: block;
+  margin-top: 2px;
+  letter-spacing: 0.06em;
+  margin-bottom: 5px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.history,
+.favorites {
+  padding-left: 35px;
+  margin-top: 50px;
+}
+
+.favorite,
+.historyH5 {
+  position: relative;
+  margin-bottom: 5px;
+  color: #007acc;
+}
+
+.history-word,
+.favorite-word {
+  /* color: rgb(78, 47, 255); */
+  color: #007acc;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.history-word:hover,
+.favorite-word:hover {
+  color: #0057a4;
+  text-decoration: none;
+}
+
+.history-word:active,
+.favorite-word:active {
+  color: rgb(255, 106, 106);
+  text-decoration: none;
+}
+
+@media (max-width: 600px) {
+  .displayArea {
+    width: 92%;
+    max-width: 100%;
+  }
+}
